@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-configmap
+data:
+  # Flask
+  FLASK_HOST: "0.0.0.0"
+  FLASK_PORT: "3000"
+  FLASK_DEBUG: "True"
+  # MySQL
+  MYSQL_HOST: "host.minikube.internal"
+  MYSQL_PORT: "3306"
+  MYSQL_DB: "auth"
+  MYSQL_USER: "auth_user"
+  # JWT
+  JWT_ALGORITHM: "HS256"
