@@ -129,7 +129,6 @@ env.bak/
 venv.bak/
 **/venv
 **/src/src
-secret.yaml
 
 # Spyder project settings
 .spyderproject
