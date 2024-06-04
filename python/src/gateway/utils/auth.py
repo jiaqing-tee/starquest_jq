@@ -14,7 +14,7 @@ def validate_user():
         'Authorization': f'Bearer {request.authorization.token}'
     }
     response = requests.post(
-        f'{env.AUTH_SVC_ADDRESS}/validate',
+        f'{env.AUTH_SVC_ADDRESS}/auth/validate',
         headers=headers,
     )
     if response.status_code != 200:
