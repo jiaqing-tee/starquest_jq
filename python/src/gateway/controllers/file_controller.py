@@ -8,7 +8,7 @@ from config import env
 def upload():
     user_access = auth.validate_user()
     if not user_access['admin']:
-        raise NoPermission(user_access["username"])
+        raise NoPermission(user_access['username'])
     uploaded_videos = []
     for file_name, file_storage in request.files.items():
         grid_file_id = mongodb.upload_file(env.GRIDFS_VIDEO_NAME, file_storage)
@@ -36,7 +36,7 @@ def upload():
 def download():
     user_access = auth.validate_user()
     if not user_access['admin']:
-        raise NoPermission(user_access["username"])
+        raise NoPermission(user_access['username'])
     fid = request.args.get('fid')
     if not fid:
         raise MissingFidParams()
