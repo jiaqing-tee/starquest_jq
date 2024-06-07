@@ -1,5 +1,6 @@
 import json, pika
 import pika.spec
+from retry import retry
 from utils.error_handlers import ErrorInitRabbitmq, PublishError
 from config import env
 
@@ -20,7 +21,9 @@ def init():
         raise ErrorInitRabbitmq(f'Unable to initialize RabbitMQ channel: {err}')
 
 
+@retry(tries=10, delay=1, backoff=2)
 def publish(routing_key: str, message: dict):
+    init()
     try:
         body = json.dumps(message)
         properties = pika.BasicProperties(delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE)
