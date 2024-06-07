@@ -12,7 +12,7 @@ class ErrorWrapper(HTTPException):
             self.description += f'{ str(error)}'
         if response is None:
             self.response = Response(self.description, self.code)
-        self.display_error(self.code, self.description)
+        self.display_error()
         super().__init__(self.description, self.response)
     
     def display_error(self):
