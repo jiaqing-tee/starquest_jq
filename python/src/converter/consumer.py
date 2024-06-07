@@ -42,7 +42,7 @@ def main():
     rabbitmq.init()
     # Consume video queue: start converting videos into audios
     rabbitmq.consume(env.RABBITMQ_VIDEO_QUEUE, consume_callback)
-    print("Waiting for messages, to exit press CTRL+C", file=sys.stderr)
+    print('Waiting for messages, to exit press CTRL+C', file=sys.stderr)
     rabbitmq.RABBITMQ_CHANNEL.start_consuming()
 
 
