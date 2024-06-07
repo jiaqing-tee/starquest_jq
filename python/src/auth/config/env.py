@@ -1,5 +1,6 @@
 import os
 
+
 # Flask
 FLASK_HOST = os.environ.get('FLASK_HOST')
 FLASK_PORT = int(os.environ.get('FLASK_PORT'))
