@@ -1,8 +1,11 @@
 from flask import request
-from models import mysql
+from models import mysql, postgres
 from utils import access
 import utils.error_handlers as http_err
 from config import env
+
+
+APP_MODEL = mysql if env.APP_DB_USE_MYSQL else postgres
 
 
 def login():
@@ -11,7 +14,7 @@ def login():
         raise http_err.MissingAuthHeader()
     elif (auth_header.type != 'basic') or (not auth_header.username) or (not auth_header.password):
         raise http_err.MissingBasicAuthentication()
-    user_password = mysql.get_user_password(auth_header.username)
+    user_password = APP_MODEL.get_user_password(auth_header.username)
     if user_password is None:
         raise http_err.UserNotFound(auth_header.username)
     if auth_header.password != user_password:

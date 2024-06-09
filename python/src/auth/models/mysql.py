@@ -22,7 +22,7 @@ def init():
 
 def get_user_password(username):
     cur = MYSQL_SERVER.connection.cursor()
-    sql_statement = f'SELECT password FROM user WHERE email="{username}";'
+    sql_statement = f'SELECT password FROM users WHERE email="{username}";'
     query_row_count = cur.execute(sql_statement)
     if query_row_count == 0:
         return None

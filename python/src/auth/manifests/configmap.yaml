@@ -8,9 +8,14 @@ data:
   FLASK_PORT: "3000"
   FLASK_DEBUG: "True"
   # MySQL
-  MYSQL_HOST: "host.minikube.internal"
-  MYSQL_PORT: "3306"
-  MYSQL_DB: "auth"
-  MYSQL_USER: "auth_user"
+  # MYSQL_HOST: "host.minikube.internal"
+  # MYSQL_PORT: "3306"
+  # MYSQL_DB: "auth"
+  # MYSQL_USER: "auth_user"
+  # Postgres
+  POSTGRES_HOST: "postgres"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: "auth"
+  POSTGRES_USER: "auth_user"
   # JWT
   JWT_ALGORITHM: "HS256"
