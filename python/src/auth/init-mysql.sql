@@ -9,7 +9,7 @@ USE auth;
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL
+  password_hash VARCHAR(162) NOT NULL
 );
 
-INSERT INTO users (email, password) VALUES ('test@domain.com', 'Input_User_Password');
+INSERT INTO users (email, password_hash) VALUES ('test@domain.com', 'Input_User_Password_Hash');

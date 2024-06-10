@@ -1,4 +1,5 @@
 from flask import request
+from werkzeug.security import check_password_hash
 from models import mysql, postgres
 from utils import access
 import utils.error_handlers as http_err
@@ -14,10 +15,10 @@ def login():
         raise http_err.MissingAuthHeader()
     elif (auth_header.type != 'basic') or (not auth_header.username) or (not auth_header.password):
         raise http_err.MissingBasicAuthentication()
-    user_password = APP_MODEL.get_user_password(auth_header.username)
-    if user_password is None:
+    password_hash = APP_MODEL.get_user_password_hash(auth_header.username)
+    if password_hash is None:
         raise http_err.UserNotFound(auth_header.username)
-    if auth_header.password != user_password:
+    if not check_password_hash(password_hash, auth_header.password):
         raise http_err.IncorrectUserPassword()
     return access.get_access_token(env.JWT_SECRET, auth_header.username, True)
 
