@@ -11,4 +11,4 @@ data:
   EMAIL_PORT: "587"
   EMAIL_SUBJECT: "MP3 Converter: Your MP3 is Ready for Download"
   # File
-  FILE_DOWNLOAD_URL: "http://mp3converter.com/file/download?fid="
+  FILE_DOWNLOAD_URL: "http://mp3converter.com/api/file/download?fid="
