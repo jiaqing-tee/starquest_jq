@@ -1,6 +1,6 @@
 from flask import Flask
 from models import mongodb, rabbitmq
-from routes import auth_routes, file_routes
+from routes import api_routes
 from config import env
 
 
@@ -11,8 +11,7 @@ with app.app_context():
     mongodb.init()
     rabbitmq.init()
     # Routes
-    app.register_blueprint(auth_routes.auth_bp)
-    app.register_blueprint(file_routes.file_bp)
+    app.register_blueprint(api_routes.api_bp)
 
 
 if __name__ == '__main__':

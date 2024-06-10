@@ -22,8 +22,8 @@ def init():
 
 def get_user_password_hash(username):
     cur = MYSQL_SERVER.connection.cursor()
-    sql_statement = f'SELECT password_hash FROM users WHERE email="{username}";'
-    query_row_count = cur.execute(sql_statement)
+    sql_statement = 'SELECT password_hash FROM users WHERE email=%s;'
+    query_row_count = cur.execute(sql_statement, (username, ))
     if query_row_count == 0:
         return None
     result = cur.fetchone()
