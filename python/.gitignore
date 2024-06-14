@@ -128,6 +128,8 @@ ENV/
 env.bak/
 venv.bak/
 **/venv
+test.mp3
+test.mp4
 
 # Spyder project settings
 .spyderproject

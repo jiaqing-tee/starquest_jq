@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-configmap
+data:
+  APP_URL: "https://mp3converter.com"
+  GATEWAY_URL: "http://gateway:3030/api"

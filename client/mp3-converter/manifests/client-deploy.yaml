@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth
+  name: client
   labels:
-    app: auth
+    app: client
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: auth
+      app: client
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -16,16 +16,13 @@ spec:
   template:
     metadata:
       labels:
-        app: auth
+        app: client
     spec:
       containers:
-        - name: auth
-          image: jqtee/starquest:auth
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3001
+        - name: client
+          image: jqtee/starquest:client
           envFrom:
             - configMapRef:
-                name: auth-configmap
+                name: client-configmap
             - secretRef:
-                name: auth-secret
+                name: client-secret

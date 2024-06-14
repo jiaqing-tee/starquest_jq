@@ -8,7 +8,7 @@ data:
   FLASK_PORT: "3030"
   FLASK_DEBUG: "True"
   # Auth service
-  AUTH_SVC_ADDRESS: "http://auth:3000"
+  AUTH_SVC_ADDRESS: "http://auth:3001"
   # MongoDB
   MONGODB_VIDEO_URI: "mongodb://host.minikube.internal:27017/videos"
   MONGODB_MP3_URI: "mongodb://host.minikube.internal:27017/mp3s"
